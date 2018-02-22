@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/ssda2"/>
+<Context path="/Assignment2">
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/blogusers" 
+              factory = "org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              type="javax.sql.DataSource"
+              name="jdbc/blogusers" 
+              username="root" password="root" />
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+         dataSourceName="jdbc/blogusers" localDataSource="true" digest="SHA-256" 
+         userTable="users" userNameCol="username" userCredCol="password"/>
+</Context>

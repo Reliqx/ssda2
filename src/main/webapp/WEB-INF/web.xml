@@ -2,8 +2,8 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>ssd.ssda2.controller.UserServlet</servlet-class>
-                <init-param>
+        <servlet-class>ssd.ssda2.controller.MainServlet</servlet-class>
+        <init-param>
             <param-name>greeting</param-name>
             <param-value>SSD Assignment 2</param-value>
         </init-param>
@@ -17,8 +17,41 @@
             30
         </session-timeout>
     </session-config>
-    
-        <welcome-file-list>
+    <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Read</web-resource-name>
+            <url-pattern>/listall.do</url-pattern>
+            <url-pattern>/change_password.do</url-pattern>
+            <url-pattern>/update_password.do</url-pattern>
+        </web-resource-collection>
+
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Edit</web-resource-name>
+            <url-pattern>/clearall.do</url-pattern>
+            <url-pattern>/edit.do</url-pattern>
+            <url-pattern>/update.do</url-pattern>
+            <url-pattern>/delete.do</url-pattern>
+            <url-pattern>/remove.do</url-pattern>
+        </web-resource-collection>
+<!--        <auth-constraint>
+            <role-name>administrator</role-name>
+        </auth-constraint>-->
+        <!--    
+        <user-data-constraint> 
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+        </user-data-constraint>
+        -->
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login_failed.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
 </web-app>
