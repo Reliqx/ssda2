@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 21-Feb-2018, 3:04:29 PM
-    Author     : Alvin Pascua
+    Document   : main
+    Created on : Feb 22, 2018, 12:04:00 PM
+    Author     : Colin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <a href="login.jsp">LOGIN</a>
+        <h1>You Fucking Did It!</h1>
     </body>
 </html>

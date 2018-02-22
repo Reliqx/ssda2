@@ -5,15 +5,24 @@
  */
 package ssd.ssda2.business;
 
+import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
+
 /**
  *
  * @author Alvin Pascua
  */
 public class User {
     
-    String username = "";
-    String password = "";
-    String role = "";
+    @NotBlank(message = "Missing username")
+    @Pattern(regexp = "(([a-zA-Z]+['.,-]?)|\\s)*", message = "Invalid username")
+    private String username = "";
+
+    @NotBlank(message = "Missing password")
+    private String password = "";
+    
+    @NotBlank(message = "Missing email")
+    private String email = "";
 
     public User() {
     }
@@ -32,16 +41,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    } 
+
+    public String getEmail() {
+        return email;
     }
 
-    public String getRole() {
-        return role;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-    
-    
     
 }
